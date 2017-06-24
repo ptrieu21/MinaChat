@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622101032) do
+ActiveRecord::Schema.define(version: 20170624042739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
@@ -22,20 +29,12 @@ ActiveRecord::Schema.define(version: 20170622101032) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipents", force: :cascade do |t|
+  create_table "recipients", force: :cascade do |t|
     t.integer  "message_id"
     t.integer  "user_id"
     t.boolean  "is_read",    default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-  end
-
-  create_table "recipients", force: :cascade do |t|
-    t.integer  "message_id"
-    t.integer  "user_id"
-    t.boolean  "is_read"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_recipients_on_message_id", using: :btree
     t.index ["user_id"], name: "index_recipients_on_user_id", using: :btree
   end

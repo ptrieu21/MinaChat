@@ -1,9 +1,8 @@
-Rails.application.routes.draw do
-  
-
+Rails.application.routes.draw do  
   root 'pages#home'
   resources :users
   resources :messages
+  resources :friendships
 
   get 'inbox', to: 'messages#inbox'
 
@@ -11,4 +10,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'auth/:provider/callback' => 'sessions#callback'
+
 end

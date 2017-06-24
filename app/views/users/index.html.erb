@@ -1,5 +1,13 @@
 <h1> All User </h1>
 
 <% @users.each do |user| %>
-	<%= user.username %><br>
+	<%= user.username %>
+
+	<% if current_user.friend? user %>
+
+	<% else %>
+		<% unless user==current_user %>
+			<%= button_to "Add friend", friendships_path(friend_id: user.id), {form_class: 'form', remote: true} %>
+		<% end %>
+	<% end %>
 <% end %>
