@@ -15,8 +15,11 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-# Use bootstrap-sass
-gem 'bootstrap-sass', '~> 3.3.6'
+# Use bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'omniauth'

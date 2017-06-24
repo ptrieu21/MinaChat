@@ -1,0 +1,45 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="<%= root_path %>"><h3 class="mb-0">MinaChat</h3></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% if logged_in? %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Messages
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="<%= inbox_path %>">Unread</a>
+              <a class="dropdown-item" href="<%= messages_path %>">Have sent</a>
+              <a class="dropdown-item" href="<%= new_message_path %>">New messages</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Friends
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="<%= friendships_path %>">Friend list</a>
+              <a class="dropdown-item" href="<%= users_path %>">Add friends</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.username.titleize %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Edit profile</a>
+              <a class="dropdown-item" href="<%= logout_path %>" data-method="delete">Logout</a>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
