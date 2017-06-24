@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:edit, :update, :show]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
+	before_action :require_logout, only: [:new]
 
 	def index
 		@users = User.all
@@ -16,8 +17,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:success] = "Welcome to MinaChat #{@user.username}"
-			redirect_to users_path
+			flash[:success] = "Your account have been created, please login to continute"
+			redirect_to login_path
 		else
 			render 'new'
 		end
@@ -52,6 +53,13 @@ class UsersController < ApplicationController
 			if current_user != @user
 				flash[:error] = "You can only edit your own account"
 				redirect_to root_path
+			end
+		end
+
+		def require_logout
+			if logged_in?
+				flash[:notice] = "You must logout before creating new account"
+				redirect_to inbox_path
 			end
 		end
 end

@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
 
 	def new
 		@message = Message.new
-		@users = User.all
+		@users = @user.friends
 	end
 
 	def create
