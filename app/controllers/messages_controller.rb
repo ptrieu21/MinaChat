@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 	before_action :require_user
 	before_action :set_user
 	def index
-		@messages = @user.send_messages
+		@messages = @user.send_messages.order("created_at desc")
 	end
 
 	def inbox
@@ -29,11 +29,11 @@ class MessagesController < ApplicationController
 		@message = Message.find(params[:id])
 		@recipient = Recipient.find_by(message: @message, user: @user)
 		if @recipient.nil?
-			flash[:danger] = "You cannot read this message"
+			flash[:error] = "You cannot read this message"
 			redirect_to inbox_path
 		else
 			if @recipient.is_read
-				flash[:danger] = "This message have already been read!"
+				flash[:error] = "This message have already been read!"
 				redirect_to inbox_path
 			else
 				@recipient.update_attribute :is_read, true

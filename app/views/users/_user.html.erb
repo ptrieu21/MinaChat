@@ -1,7 +1,7 @@
 <% @users.each do |user| %>
-	<div class="user-list">
-		<%= image_tag user.avatar, class: "user-avatar" %>
-	  <div class="user-body">
+	<div class="box-list">
+		<%= image_tag user.avatar, class: "box-avatar" %>
+	  <div class="box-body">
 	    <h2 class="mt-0"><%= user.username.titleize %></h2>
 	    <% unless user == current_user %>
 		    <% unless current_user.friend?(user) %>

@@ -1,5 +1,12 @@
 <h1>Unread messages</h1>
 
 <% @messages.each do |message| %>
-	<%= link_to message.body, message %>
+	<div class="box-list">
+		<div class="box-avatar"><%= image_tag message.sender.avatar %></div>
+		<div class="box-body">
+			<h3><%= link_to "#{message.created_at}", message %></h3>
+			<h5>Send by: <%= message.sender.username.titleize %></h5>
+			<h5>Messages: <%= truncate(message.body, length: 50) %></h5>
+		</div>
+	</div>
 <% end %>

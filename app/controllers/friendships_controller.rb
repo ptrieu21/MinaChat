@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
 	def create
 		if current_user.add_friend(@friend)
 			flash[:success] = "Add Friend sucess"
-			redirect_to request.path
+			redirect_to users_path
 		else
 
 		end

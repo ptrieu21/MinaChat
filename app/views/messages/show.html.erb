@@ -1,0 +1,13 @@
+<h1>Message</h1>
+
+<div class="box-list">
+	<div class="box-body" >
+		<div class="box-title">
+			<h3>Send by: <%= @message.sender.username %></h3>
+			<p>At: <%= @message.created_at %></p>
+		</div>
+		<div class="box-text">
+			<h5><%= @message.body %></h5>
+		</div>
+	</div>
+</div>

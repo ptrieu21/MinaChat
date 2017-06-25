@@ -1,5 +1,19 @@
 <h1> Index </h1>
 
 <% @messages.each do |message| %>
-	<%= message.body %>
+	<% message.recipients.each do |recipient| %>
+		<div class="box-list">
+			<div class="box-avatar"><%= image_tag recipient.user.avatar %></div>
+			<div class="box-body">
+				<% if recipient.is_read %>
+					<h3>Status: Read at <%= recipient.updated_at %></h3>
+				<% else %>
+					<h3><font color="red">Status: Unread</font></h3>
+				<% end %>
+	
+				<h5>Send to: <%= recipient.user.username.titleize %></h5>
+				<h5>Messages: <%= truncate(message.body, length: 50) %></h5>
+			</div>
+		</div>
+	<% end %>
 <% end %>
