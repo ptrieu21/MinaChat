@@ -1,0 +1,18 @@
+
+<%= form_for :session, url: login_path do |f| %>
+  <div class="form-group">        
+    <%= f.label :email %>  
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+  </div>
+
+  <div class="form-group">        
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+  </div>
+
+  <div class="form-group">
+		<%= f.submit "Login", class: "btn btn-primary btn-block" %>
+		
+			<a href="/auth/facebook" title="Facebook" class="btn btn-facebook btn-block"><i class="fa fa-facebook fa-fw"></i> Connect with Facebook</a>
+	</div>			
+<% end %>

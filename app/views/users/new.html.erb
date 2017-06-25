@@ -1,4 +1,9 @@
 <h1 align="center">Sign up</h1>
 
-<%= render 'form' %>
-<%= button_to "Connect with Facebook", "/auth/facebook", class: "btn btn-primary btn-block" %>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<%= render 'form' %>
+		<a href="/auth/facebook" title="Facebook" class="btn btn-facebook btn-block"><i class="fa fa-facebook fa-fw"></i> Connect with Facebook</a>
+	</div>
+</div>

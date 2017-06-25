@@ -1,5 +1,38 @@
 @import "bootstrap";
-h1 {
-	padding-top: 20px;
-	padding-bottom: 20px;
+
+body h1{
+	text-align: center;
 }
+.main {
+	padding-top: 20px;
+}
+
+.jumbotron {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), asset-url('cover.jpg');
+  background-size: cover;
+
+}
+
+.vertical-center {
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+}
+.jumbotron .right{
+	padding-top: 60px;
+	color: #fff
+}
+
+
+
+.btn-facebook {
+	  background: #3B5998;
+	  color: #fff;
+	}
+	.btn-facebook:link, .btn-facebook:visited {
+	  color: #fff;
+	}
+	.btn-facebook:active, .btn-facebook:hover {
+	  background: #263961;
+	  color: #fff;
+	}

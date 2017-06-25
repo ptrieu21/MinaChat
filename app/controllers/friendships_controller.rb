@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 
 	def create
 		if current_user.add_friend(@friend)
-			flash[:susscess] = "Friend have been added!"
+			flash[:success] = "Friend have been added!"
 			redirect_to friendships_path
 		else
 

@@ -13,6 +13,11 @@
 //= require jquery3
 //= require tether
 //= require bootstrap-sprockets
+//= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require bootstrap-multiselect
 //= require turbolinks
 //= require_tree .
+
+
