@@ -30,6 +30,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		if @user.update(user_params)
+			flash[:success] = "Your account was updated successfully"
+			redirect_to inbox_path
+		else
+			render 'edit'
+		end
 
 	end
 
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:username, :email, :password)
+			params.require(:user).permit(:username, :email, :password, :avatar)
 		end
 
 		def set_user

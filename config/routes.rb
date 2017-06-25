@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :users
   resources :messages
-  resources :friendships
+  resources :friendships, except: [:show, :delete]
+  delete 'friendships', to: 'friendships#destroy'
 
   get 'inbox', to: 'messages#inbox'
 

@@ -7,6 +7,8 @@ class User < ApplicationRecord
 						format: {with: VALID_EMAIL_REGEX}
 	has_secure_password
 
+	mount_uploader :avatar, AvatarUploader
+
 	#Facbook login
 	def self.from_omniauth(auth)
     # Check out the Auth Hash function at https://github.com/mkdynamic/omniauth-facebook#auth-hash

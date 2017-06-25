@@ -34,7 +34,7 @@
               <%= current_user.username.titleize %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Edit profile</a>
+              <a class="dropdown-item" href="<%= edit_user_path(current_user) %>">Edit profile</a>
               <a class="dropdown-item" href="<%= logout_path %>" data-method="delete">Logout</a>
             </div>
           </li>

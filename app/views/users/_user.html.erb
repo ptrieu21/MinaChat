@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+	<div class="user-list">
+		<%= image_tag user.avatar, class: "user-avatar" %>
+	  <div class="user-body">
+	    <h2 class="mt-0"><%= user.username.titleize %></h2>
+	    <% unless user == current_user %>
+		    <% unless current_user.friend?(user) %>
+					<%= button_to "Add friend", friendships_path(friend_id: user.id), {class: 'btn btn-primary', remote: true} %>
+				<% else %>
+					<%= button_to "Unfriend", friendships_path(friend_id: user.id), method: :delete, class: 'btn btn-danger' %>
+				<% end %>
+			<% end %>
+	  </div>
+	</div>
+<% end %>
